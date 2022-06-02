@@ -4,19 +4,19 @@
     <div class="users-container">
       <div id="sidebar-menu" @click="toggleSidebar()">MENU</div>
       <SideBar :showSidebar="showSidebar" />
-      <UserCard :userProfiles="userProfiles" />
+      <UsersCards :userProfiles="userProfiles" />
     </div>
   </div>
 </template>
 
 <script>
 import SideBar from "../layouts/SideBar.vue";
-import UserCard from "../components/UserCard.vue";
+import UsersCards from "../components/UsersCards.vue";
 
 export default {
   components: {
     SideBar,
-    UserCard,
+    UsersCards,
   },
   data() {
     return {
