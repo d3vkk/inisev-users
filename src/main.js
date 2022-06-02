@@ -1,13 +1,26 @@
 import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
-import Redirect from "./views/Redirect.vue";
 import "./assets/css/styles.css";
 
 Vue.config.productionTip = false;
 
+function authRoute(to, from, next) {
+  const loginInfoStored = JSON.parse(localStorage.getItem("loginInfo"));
+  if (loginInfoStored == null) {
+    next("/login");
+  } else {
+    next();
+  }
+}
+
 const routes = [
-  { path: "/", component: Redirect },
+  {
+    path: "/",
+    beforeEnter: authRoute,
+    component: () =>
+      import(/* webpackChunkName: "users" */ "./views/Users.vue"),
+  },
   {
     path: "/login",
     component: () =>
@@ -15,6 +28,7 @@ const routes = [
   },
   {
     path: "/users",
+    beforeEnter: authRoute,
     component: () =>
       import(/* webpackChunkName: "users" */ "./views/Users.vue"),
   },
