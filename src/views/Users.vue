@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>USERS</h1>
+    <div class="title">Users</div>
     <div class="users-container">
       <div id="sidebar-menu" @click="toggleSidebar()">MENU</div>
       <SideBar :showSidebar="showSidebar" />

@@ -3,6 +3,7 @@
     <div id="login-page__container">
       <h1>Log In To Your Account</h1>
       <div>
+        <div class="title">Log In To Your Account</div>
         <div class="login-page__input-container">
           <label>Username</label>
           <input type="text" required v-model="username" />
